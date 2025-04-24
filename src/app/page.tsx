@@ -1,4 +1,5 @@
 import { FirstQuestion } from "./components/first-question";
+import { ImageUpload } from "./components/image-upload";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
         <audio controls src="/daina.mp3"></audio>
         <FirstQuestion />
 
+        <ImageUpload />
       </main>
     </div>
   );
