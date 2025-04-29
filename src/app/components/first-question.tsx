@@ -18,5 +18,5 @@ export const FirstQuestion = () => {
     }
   }
 
-  return <div><Input value={val} placeholder="kas toliau??" onChange={handleChange}/><Button onClick={handleClick}>Vaziojam</Button></div>
+  return <div><Input value={val} placeholder="KUR TOLIAU??" onChange={handleChange}/><Button size="lg" onClick={handleClick}>Vaziojam</Button></div>
 }

@@ -120,3 +120,162 @@
     @apply bg-background text-foreground;
   }
 }
+
+.retro-button, .retro-button-destructive, .retro-button-outline, .retro-button-secondary, .retro-button-ghost {
+  text-shadow: 0 0 6px currentColor;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.retro-button::before,
+.retro-button-destructive::before,
+.retro-button-outline::before,
+.retro-button-secondary::before,
+.retro-button-ghost::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, currentColor, transparent);
+  opacity: 0.5;
+}
+
+.retro-button::after,
+.retro-button-destructive::after,
+.retro-button-outline::after,
+.retro-button-secondary::after,
+.retro-button-ghost::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+.retro-button:active,
+.retro-button-destructive:active,
+.retro-button-outline:active,
+.retro-button-secondary:active,
+.retro-button-ghost:active {
+  transform: translateY(1px);
+}
+
+@keyframes glitch {
+  0% {
+    clip-path: inset(40% 0 61% 0);
+    transform: translate(-2px, 2px);
+  }
+  20% {
+    clip-path: inset(92% 0 1% 0);
+    transform: translate(1px, 1px);
+  }
+  40% {
+    clip-path: inset(43% 0 1% 0);
+    transform: translate(3px, 1px);
+  }
+  60% {
+    clip-path: inset(25% 0 58% 0);
+    transform: translate(-5px, 1px);
+  }
+  80% {
+    clip-path: inset(54% 0 7% 0);
+    transform: translate(2px, -2px);
+  }
+  100% {
+    clip-path: inset(58% 0 43% 0);
+    transform: translate(-2px, 2px);
+  }
+}
+
+.retro-button:hover::before,
+.retro-button-destructive:hover::before,
+.retro-button-outline:hover::before,
+.retro-button-secondary:hover::before {
+  animation: glitch 500ms infinite linear alternate-reverse;
+}
+
+.retro-input {
+  text-shadow: 0 0 4px rgba(234, 179, 8, 0.5);
+  backdrop-filter: blur(1px);
+  text-transform: uppercase;
+}
+
+.retro-input::placeholder {
+  text-shadow: none;
+}
+
+/* Custom styles for file inputs */
+.retro-input[type="file"] {
+  position: relative;
+  padding-left: 12px;
+}
+
+.retro-input[type="file"]::file-selector-button {
+  color: #facc15;
+  font-family: inherit;
+  font-weight: bold;
+  background-color: #111827;
+  border: 1px solid #eab308;
+  border-radius: 4px;
+  padding: 4px 8px;
+  margin-right: 8px;
+  cursor: pointer;
+  text-shadow: 0 0 4px rgba(234, 179, 8, 0.5);
+  box-shadow: 0 0 6px rgba(234, 179, 8, 0.3);
+  transition: all 0.2s;
+}
+
+.retro-input[type="file"]::file-selector-button:hover {
+  background-color: #1f2937;
+  border-color: #fcd34d;
+  box-shadow: 0 0 8px rgba(234, 179, 8, 0.5);
+}
+
+/* Custom styles for date inputs */
+.retro-input[type="date"] {
+  color-scheme: dark;
+}
+
+.retro-input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.8) sepia(0.8) hue-rotate(0deg) saturate(5);
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.retro-input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+}
+
+/* Range slider styling */
+.retro-input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  height: 8px;
+  background: #111827;
+  border: 1px solid #eab308;
+  box-shadow: 0 0 6px rgba(234, 179, 8, 0.3);
+  padding: 0;
+}
+
+.retro-input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #eab308;
+  box-shadow: 0 0 6px rgba(234, 179, 8, 0.7);
+}

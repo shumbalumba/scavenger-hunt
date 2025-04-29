@@ -34,7 +34,7 @@ export default function RetroLoader({
   }, [duration, autoReset]);
 
   return (
-    <div className="w-72">
+    <div className="w-72 mt-auto mb-auto">
       {/* Progress text */}
       <div className="flex justify-between mb-1">
         <span className="text-yellow-400">{text}</span>
