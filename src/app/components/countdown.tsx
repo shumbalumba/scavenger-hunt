@@ -5,7 +5,7 @@ import RetroLoader from './loader';
 import { playTypingSound } from '@/utils/playSound';
 
 const padWithZero = (num: number): string => num < 10 ? `0${num}` : num.toString()
-const texts = ['LAURYNAI, ŽAIDIMAS NETRUKUS PRASIDĖS.', 'GEGUŽĖS 9D. 18:00 BŪK PASIRUOŠĘS.'];
+const texts = ['LAURYNAI, ŽAIDIMAS NETRUKUS PRASIDĖS.', 'GEGUŽĖS 9D. 18:00 BŪK PASIRUOŠĘS.', 'TAU REIKĖS:', ' ', '• Aprangos į gamtą ir į šventę atitinkančios oro sąlygas ', '• Bolt paspirtukas ar panaši transporto priemonė. Svarbu turėti prieigą prasidėjus žaidimui. Automobilis netinka.', '• Pakrautas telefonas', '• Popierius ir tušinukas', '• Alaus virimo proceso aprašas spaudintas ant lapo', '• Mėgstamas užkandis prie alaus', '• Rulonas šikpopierio', '• 5 - 8 prezervatyvai'];
 
 export const Countdown = ({ targetDate }: { targetDate: Date }) => {
   const [timeLeft, setTimeLeft] = useState({

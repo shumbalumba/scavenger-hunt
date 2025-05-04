@@ -42,14 +42,12 @@ export const CoolText = memo(function Cool({ texts }: { texts: string[] }) {
   }, [texts]);
 
   return (
-    <div className="flex items-center justify-center mb-4 flex-col">
+    <div className="flex items-center justify-center mb-4 flex-col w-full">
       {displayText.map((text, i) => <p 
         key={text}
         className={`
           text-yellow-400 
-          text-center
-          text-2xl
-          lg:text-4xl 
+          ${text.startsWith('• ') ? 'text-left w-full text-xl lg:text-2xl' : 'text-center w-auto text-2xl lg:text-4xl'}
           font-bold 
           tracking-wider
           select-none
