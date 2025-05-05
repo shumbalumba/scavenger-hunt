@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <AdvancedScanlines>
       <main className="flex flex-col justify-start items-center lg:items-center justify-items-center min-h-screen p-8 pt-12 pb-20 gap-6 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-          {hasEntered ? <Countdown targetDate={new Date('2025-05-09 18:00')} /> : <Button className="mt-auto mb-auto" size="xl" onClick={() => setHasEntered(true)} variant="default">ENTER</Button>}
+          {hasEntered ? <Countdown targetDate={new Date('2025-05-09 18:30')} /> : <Button className="mt-auto mb-auto" size="xl" onClick={() => setHasEntered(true)} variant="default">ENTER</Button>}
      </main>
     </AdvancedScanlines>
   );
