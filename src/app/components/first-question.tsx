@@ -1,22 +1,29 @@
-"use client"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { ChangeEvent, useState } from "react"
+"use client";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { ChangeEvent, useState } from "react";
 
 export const FirstQuestion = () => {
-  const [val, setVal] = useState('')
+  const [val, setVal] = useState("");
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement >) => {
-    setVal(e.target.value)
-  }
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setVal(e.target.value);
+  };
 
   const handleClick = () => {
-    if (val === '123') {
-      alert('vaziuojam toliau :)')
+    if (val === "123") {
+      alert("vaziuojam toliau :)");
     } else {
-      alert('cbb')
+      alert("cbb");
     }
-  }
+  };
 
-  return <div><Input value={val} placeholder="KUR TOLIAU??" onChange={handleChange}/><Button size="lg" onClick={handleClick}>Vaziojam</Button></div>
-}
+  return (
+    <div>
+      <Input value={val} placeholder="KUR TOLIAU??" onChange={handleChange} />
+      <Button size="lg" onClick={handleClick}>
+        Vaziojam
+      </Button>
+    </div>
+  );
+};

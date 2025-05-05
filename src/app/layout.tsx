@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
 import { VT323 } from "next/font/google";
 import "./globals.css";
+import AdvancedScanlines from "./components/scanlines";
 
 const vt323 = VT323({
-  weight: '400',
+  weight: "400",
   subsets: ["latin"],
 });
-
-
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -24,7 +23,11 @@ export default function RootLayout({
       <body
         className={`${vt323.className} antialiased bg-gradient-to-b from-gray-950 to-gray-900 bg-opacity-90`}
       >
-        {children}
+        <AdvancedScanlines>
+          <main className="flex flex-col justify-start items-center lg:items-center justify-items-center min-h-screen p-8 pt-12 pb-20 gap-6 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+            {children}
+          </main>
+        </AdvancedScanlines>
       </body>
     </html>
   );

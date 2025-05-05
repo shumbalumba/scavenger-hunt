@@ -1,24 +1,24 @@
-'use client';
-import { useEffect, useState } from 'react';
+"use client";
+import { useEffect, useState } from "react";
 
-export default function RetroLoader({ 
-  text = "LOADING", 
+export default function RetroLoader({
+  text = "LOADING",
   duration = 2000,
-  autoReset = false
+  autoReset = false,
 }) {
   const [progress, setProgress] = useState(0);
-  
+
   useEffect(() => {
     const startTime = Date.now();
     const endTime = startTime + duration;
-    
+
     const updateProgress = () => {
       const now = Date.now();
       const elapsed = now - startTime;
       const newProgress = Math.min(100, (elapsed / duration) * 100);
-      
+
       setProgress(newProgress);
-      
+
       if (now < endTime) {
         requestAnimationFrame(updateProgress);
       } else if (autoReset) {
@@ -29,7 +29,7 @@ export default function RetroLoader({
         }, 500); // Small pause before resetting
       }
     };
-    
+
     requestAnimationFrame(updateProgress);
   }, [duration, autoReset]);
 
@@ -40,11 +40,11 @@ export default function RetroLoader({
         <span className="text-yellow-400">{text}</span>
         <span className="text-yellow-400">{Math.round(progress)}%</span>
       </div>
-      
+
       {/* Progress bar container */}
       <div className="w-full bg-gray-800 border border-yellow-600">
         {/* Progress bar fill */}
-        <div 
+        <div
           className="h-4 bg-yellow-400 relative overflow-hidden"
           style={{ width: `${progress}%` }}
         >

@@ -121,7 +121,11 @@
   }
 }
 
-.retro-button, .retro-button-destructive, .retro-button-outline, .retro-button-secondary, .retro-button-ghost {
+.retro-button,
+.retro-button-destructive,
+.retro-button-outline,
+.retro-button-secondary,
+.retro-button-ghost {
   text-shadow: 0 0 6px currentColor;
   position: relative;
   text-transform: uppercase;
@@ -132,7 +136,7 @@
 .retro-button-outline::before,
 .retro-button-secondary::before,
 .retro-button-ghost::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -147,7 +151,7 @@
 .retro-button-outline::after,
 .retro-button-secondary::after,
 .retro-button-ghost::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -278,4 +282,42 @@
   border-radius: 50%;
   background: #eab308;
   box-shadow: 0 0 6px rgba(234, 179, 8, 0.7);
+}
+
+svg {
+  width: 24px;
+  height: 24px;
+}
+
+@keyframes monitorTurnOn {
+  0% {
+    opacity: 0;
+    transform: scaleY(0.1) scaleX(1.2);
+  }
+  20% {
+    opacity: 1;
+    transform: scaleY(1) scaleX(1);
+  }
+  40% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 0;
+  }
+  65% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate-monitorTurnOn {
+  animation: monitorTurnOn 0.6s ease-out forwards;
 }

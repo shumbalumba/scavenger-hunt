@@ -1,29 +1,29 @@
-'use client';
-import React, { useState, useEffect } from 'react';
+"use client";
+import React, { useState, useEffect } from "react";
 
 type Props = {
-  children: React.ReactNode,
-  scanWidth?: number,
-  scanColor?: string,
-  scanFps?: number,
-  scanZIndex?: number,
-  movingLine?: boolean,
-  movingLineOpacity?: number,
-  movingLineDuration?: string,
-}
+  children: React.ReactNode;
+  scanWidth?: number;
+  scanColor?: string;
+  scanFps?: number;
+  scanZIndex?: number;
+  movingLine?: boolean;
+  movingLineOpacity?: number;
+  movingLineDuration?: string;
+};
 
-export default function AdvancedScanlines({ 
-  children, 
+export default function AdvancedScanlines({
+  children,
   scanWidth = 2,
-  scanColor = 'rgba(0, 0, 0, 0.3)',
+  scanColor = "rgba(0, 0, 0, 0.3)",
   scanFps = 60,
   scanZIndex = 2147483648,
   movingLine = true,
   movingLineOpacity = 0.75,
-  movingLineDuration = '6s',
+  movingLineDuration = "6s",
 }: Props) {
   const [mounted, setMounted] = useState(false);
-  
+
   // Prevent hydration issues
   useEffect(() => {
     setMounted(true);
@@ -36,19 +36,17 @@ export default function AdvancedScanlines({
   return (
     <div className="relative">
       {/* The content you want to apply the scanline effect to */}
-      <div className="scanlines relative overflow-hidden">
-        {children}
-      </div>
-      
+      <div className="scanlines relative overflow-hidden">{children}</div>
+
       <style jsx global>{`
         .scanlines:before,
         .scanlines:after {
           display: block;
           pointer-events: none;
-          content: '';
+          content: "";
           position: absolute;
         }
-        
+
         /* Moving scanline effect */
         .scanlines:before {
           width: 100%;
@@ -56,9 +54,11 @@ export default function AdvancedScanlines({
           z-index: ${scanZIndex + 1};
           background: ${scanColor};
           opacity: ${movingLineOpacity};
-          animation: ${movingLine ? `scanline ${movingLineDuration} linear infinite` : 'none'};
+          animation: ${movingLine
+            ? `scanline ${movingLineDuration} linear infinite`
+            : "none"};
         }
-        
+
         /* Static scanlines effect */
         .scanlines:after {
           top: 0;
@@ -74,13 +74,13 @@ export default function AdvancedScanlines({
           background-size: 100% ${scanWidth * 2}px;
           animation: scanlines 1s steps(${scanFps}) infinite;
         }
-        
+
         @keyframes scanline {
           0% {
             transform: translate3d(0, 200000%, 0);
           }
         }
-        
+
         @keyframes scanlines {
           0% {
             background-position: 0 50%;
