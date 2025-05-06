@@ -18,29 +18,19 @@ export function RetroAudioPlayer({
   className,
 }: RetroAudioPlayerProps) {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [progress, setProgress] = useState(0);
   const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
 
-    const updateProgress = () => {
-      if (audio.duration) {
-        setProgress((audio.currentTime / audio.duration) * 100);
-      }
-    };
-
     const handleEnded = () => {
       setIsPlaying(false);
-      setProgress(0);
     };
 
-    audio.addEventListener("timeupdate", updateProgress);
     audio.addEventListener("ended", handleEnded);
 
     return () => {
-      audio.removeEventListener("timeupdate", updateProgress);
       audio.removeEventListener("ended", handleEnded);
     };
   }, []);
@@ -60,8 +50,6 @@ export function RetroAudioPlayer({
   const toggleReplay = () => {
     const audio = audioRef.current;
     if (!audio) return;
-
-    setProgress(0);
 
     audio.load();
     if (isPlaying) {

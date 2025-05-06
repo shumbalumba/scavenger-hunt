@@ -3,7 +3,6 @@ import { useState, useEffect, useRef } from "react";
 import { CoolText } from "./cool-text";
 import RetroLoader from "./loader";
 import { playTypingSound } from "@/utils/playSound";
-import { Button } from "@/components/ui/button";
 
 const padWithZero = (num: number): string =>
   num < 10 ? `0${num}` : num.toString();
