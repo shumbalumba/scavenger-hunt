@@ -315,7 +315,7 @@ export const Countdown = ({ targetDate }: { targetDate: Date }) => {
           ></div>
         }
       </div>
-      <CoolText texts={texts} />
+      <CoolText texts={texts} withJoke={true} />
     </>
   );
 };
