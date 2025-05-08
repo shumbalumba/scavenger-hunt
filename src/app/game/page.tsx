@@ -8,7 +8,6 @@ import { ThirdStep } from "./third-step";
 import { FourtStep } from "./fourth-step";
 import { Button } from "@/components/ui/button";
 import { Form } from "../components/form";
-import { useSearchParams } from "next/navigation";
 
 const storageKey = "gameStep";
 
@@ -17,13 +16,6 @@ export default function Game() {
     initializeWithValue: false,
   });
   const [pass, setPass] = useState(false);
-
-  const searchParams = useSearchParams();
-  const song = searchParams.get("song");
-
-  if (song) {
-    setValue(3);
-  }
 
   const handleRestart = () => {
     setValue(0);
@@ -71,6 +63,13 @@ export default function Game() {
         className="absolute bottom-3 right-3"
       >
         RESTART
+      </Button>
+      <Button
+        onClick={() => setValue(3)}
+        variant="ghost"
+        className="absolute bottom-3 right-3"
+      >
+        SKIP TO 4
       </Button>
     </>
   );
