@@ -11,6 +11,7 @@ const buttonVariants = cva(
       variant: {
         default:
           "bg-gray-900 text-yellow-400 border-2 border-yellow-500 hover:bg-gray-800 hover:border-yellow-400 shadow-[0_0_10px_rgba(234,179,8,0.5)] hover:shadow-[0_0_15px_rgba(234,179,8,0.7)] hover:text-yellow-300 retro-button",
+        blue: "bg-gray-900 text-blue-400 border-2 border-blue-500 hover:bg-gray-800 hover:border-blue-400 shadow-[0_0_10px_rgba(96, 165, 250, 0.7)] hover:shadow-[0_0_15px_rgba(96, 165, 250, 0.7)] hover:text-blue-300 retro-button",
         destructive:
           "bg-gray-900 text-red-400 border-2 border-red-500 hover:bg-gray-800 hover:border-red-400 shadow-[0_0_10px_rgba(248,113,113,0.5)] hover:shadow-[0_0_15px_rgba(248,113,113,0.7)] hover:text-red-300 retro-button-destructive",
         outline:
@@ -31,7 +32,7 @@ const buttonVariants = cva(
     },
     defaultVariants: {
       variant: "default",
-      size: "default",
+      size: "lg",
     },
   }
 );

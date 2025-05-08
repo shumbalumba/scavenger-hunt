@@ -56,12 +56,14 @@ export const CoolText = memo(function Cool({
   color = "yellow",
   capitalize,
   onComplete,
+  classNames,
 }: {
   texts: string[];
   color?: keyof typeof colorVariants;
   capitalize?: boolean;
   onComplete?: () => void;
   withJoke?: boolean;
+  classNames?: string;
 }) {
   const [displayText, setDisplayText] = useState<string[]>([""]);
   const [animationComplete, setAnimationComplete] = useState(false);
@@ -117,6 +119,7 @@ export const CoolText = memo(function Cool({
           select-none
           ${capitalize ? "uppercase" : ""} 
           ${animationComplete ? "animate-pulse" : ""}
+          ${classNames}
         `}
             style={{
               textShadow: colorVariants[color].shadows,

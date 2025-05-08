@@ -3,10 +3,15 @@
 import { useState } from "react";
 import { RetroAudioPlayer } from "../components/audio-player";
 import { CoolText } from "../components/cool-text";
+import { Form } from "../components/form";
+import { useLocalStorage } from "usehooks-ts";
 
-const texts = ["Laurynai,", "Beje, ar girdėjai naujausią šių metų hitą?"];
+const texts = [
+  // "Laurynai, sveikas atvykęs į žaidimą. Tikimės, kad esi pasiruošęs šiek tiek pažaisti ir spręsti bei vykdyti mūsų sugalvotas užduotis. Kiekvienas tavo išbandymas nuves tave į tam tikrą tašką, kuriame radęs ar gavęs atsakymą turėsi jį įvesti šioje platformoje, kad pereitum prie kito išbandymo.",
+  "Beje, ar girdėjai naujausią šių metų hitą?",
+];
 
-export const FirstStep = () => {
+export const FirstStep = ({ cb }: { cb: () => void }) => {
   const [showPlayer, setShowPlayer] = useState(false);
 
   return (
@@ -17,7 +22,14 @@ export const FirstStep = () => {
         color="pink"
         onComplete={() => setShowPlayer(true)}
       />
-      {showPlayer && <RetroAudioPlayer src="daina.mp3" />}
+      {showPlayer && <RetroAudioPlayer src="kas-geria-tas-dega.mp3" />}
+      {showPlayer && (
+        <Form
+          answer="KASGERIATASDEGA!"
+          onSuccess={cb}
+          error="NU JAU, AR TIKRAI??"
+        />
+      )}
     </>
   );
 };

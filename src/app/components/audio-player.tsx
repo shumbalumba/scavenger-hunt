@@ -9,12 +9,14 @@ interface RetroAudioPlayerProps {
   autoPlay?: boolean;
   loop?: boolean;
   className?: string;
+  note?: string;
 }
 
 export function RetroAudioPlayer({
   src,
   autoPlay = false,
   loop = false,
+  note = "SUMMER_HIT_2025.MP3",
   className,
 }: RetroAudioPlayerProps) {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -97,7 +99,7 @@ export function RetroAudioPlayer({
       </div>
 
       <div className="text-cyan-400 text- font-mono opacity-70 tracking-wider text-center">
-        SUMMER_HIT_2025.MP3
+        {note}
       </div>
     </div>
   );
