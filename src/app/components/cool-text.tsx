@@ -1,6 +1,5 @@
 "use client";
 import { playTypingSound } from "@/utils/playSound";
-import Link from "next/link";
 import { useEffect, useState, memo, useRef } from "react";
 
 const colorVariants = {
@@ -57,7 +56,6 @@ export const CoolText = memo(function Cool({
   color = "yellow",
   capitalize,
   onComplete,
-  withJoke,
 }: {
   texts: string[];
   color?: keyof typeof colorVariants;
@@ -68,7 +66,6 @@ export const CoolText = memo(function Cool({
   const [displayText, setDisplayText] = useState<string[]>([""]);
   const [animationComplete, setAnimationComplete] = useState(false);
   const audioContextRef = useRef<AudioContext | null>(null);
-  const [funkyIndex, setFunkyIndex] = useState(0);
 
   useEffect(() => {
     let currentIndex = 0;
@@ -106,54 +103,14 @@ export const CoolText = memo(function Cool({
     return () => clearTimeout(initialDelay);
   }, [texts]);
 
-  useEffect(() => {
-    if (animationComplete) {
-      const interval = setInterval(() => {
-        setFunkyIndex(Math.floor(Math.random() * texts.length));
-      }, 500);
-
-      return () => clearInterval(interval);
-    }
-  }, [animationComplete]);
-
   return (
     <div className="flex items-center justify-center mb-4 flex-col w-full">
       {displayText.map((text, i) => {
-        const renderJoke = animationComplete && withJoke && funkyIndex === i;
-        if (renderJoke) {
-          return (
-            <Link
-              key={text}
-              className={`${text.startsWith("• ") ? "text-left w-full text-xl lg:text-2xl" : "text-center w-auto text-2xl lg:text-4xl"}`}
-              href="/very-secret"
-            >
-              <p
-                className={`
-        ${colorVariants["red"].main} 
-        font-bold 
-        tracking-wider
-        ${capitalize ? "uppercase" : ""} 
-        ${animationComplete ? "animate-pulse" : ""}
-      `}
-                style={{
-                  textShadow: colorVariants[color].shadows,
-                }}
-              >
-                {text}
-                {i === displayText.length - 1 && (
-                  <span
-                    className={`${animationComplete ? "invisible" : "inline-block"} w-2 h-6 ${color} ml-1 animate-pulse`}
-                  ></span>
-                )}
-              </p>
-            </Link>
-          );
-        }
         return (
           <p
             key={text}
             className={`
-          ${colorVariants[renderJoke ? "orange" : color].main} 
+          ${colorVariants[color].main} 
           ${text.startsWith("• ") ? "text-left w-full text-xl lg:text-2xl" : "text-center w-auto text-2xl lg:text-4xl"}
           font-bold 
           tracking-wider
