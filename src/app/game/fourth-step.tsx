@@ -24,7 +24,12 @@ const notesMap = {
 
 export const FourtStep = () => {
   // Remove the initializeWithValue option to ensure localStorage values are loaded properly
-  const [songs, setSongs] = useLocalStorage(storageKey, [] as string[]);
+  const [songs, setSongs] = useLocalStorage(storageKey, [
+    "0",
+    "1",
+    "2",
+    "3",
+  ] as string[]);
   const searchParams = useSearchParams();
   const song = searchParams.get("song");
 

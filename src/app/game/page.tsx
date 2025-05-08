@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { SecondStep } from "./second-step";
 import { ThirdStep } from "./third-step";
 import { FourtStep } from "./fourth-step";
+import { Button } from "@/components/ui/button";
 
 const storageKey = "gameStep";
 
@@ -16,8 +17,12 @@ export default function Game() {
 
   const env = process.env.NODE_ENV;
 
+  const handleRestart = () => {
+    setValue(0);
+  };
+
   useEffect(() => {
-    setValue(3);
+    setValue(0);
   }, []);
 
   const handleNext = () => {
@@ -43,5 +48,16 @@ export default function Game() {
     }
   };
 
-  return renderGameStep();
+  return (
+    <>
+      {renderGameStep()}
+      <Button
+        onClick={handleRestart}
+        variant="ghost"
+        className="absolute bottom-3 right-3"
+      >
+        RESTART
+      </Button>
+    </>
+  );
 }

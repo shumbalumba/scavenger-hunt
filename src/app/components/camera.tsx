@@ -59,6 +59,9 @@ export function RetroFileUpload({
     }
   };
 
+  //liko:
+  // QR,S5 - PASTOMATO ZINUTE, SOS TIMERIS (?), STEP 6 - UZUOMINA MAPO TASKA RASTI, S7 -> pabaiga, RESTART
+
   return (
     <div className="flex flex-col items-center space-y-2">
       <CoolText
