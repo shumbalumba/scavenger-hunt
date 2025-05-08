@@ -6,7 +6,7 @@ import { CoolText } from "../components/cool-text";
 import { Form } from "../components/form";
 
 const texts = [
-  // "Laurynai, sveikas atvykęs į žaidimą. Tikimės, kad esi pasiruošęs šiek tiek pažaisti ir spręsti bei vykdyti mūsų sugalvotas užduotis. Kiekvienas tavo išbandymas nuves tave į tam tikrą tašką, kuriame radęs ar gavęs atsakymą turėsi jį įvesti šioje platformoje, kad pereitum prie kito išbandymo.",
+  "Laurynai, sveikas atvykęs į žaidimą. Tikimės, kad esi pasiruošęs šiek tiek pažaisti ir spręsti bei vykdyti mūsų sugalvotas užduotis. Kiekvienas tavo išbandymas nuves tave į tam tikrą tašką, kuriame radęs ar gavęs atsakymą turėsi jį įvesti šioje platformoje, kad pereitum prie kito išbandymo.",
   "Beje, ar girdėjai naujausią šių metų hitą?",
 ];
 

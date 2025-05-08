@@ -6,9 +6,15 @@ type FormProps = {
   answer: string;
   onSuccess: () => void;
   error?: string;
+  placeholder?: string;
 };
 
-export const Form = ({ answer, onSuccess, error = "" }: FormProps) => {
+export const Form = ({
+  answer,
+  onSuccess,
+  placeholder = "c===8",
+  error = "",
+}: FormProps) => {
   const [value, setValue] = useState<string>("");
   const [err, setErr] = useState(false);
 
@@ -26,7 +32,7 @@ export const Form = ({ answer, onSuccess, error = "" }: FormProps) => {
   };
   return (
     <>
-      <Input value={value} placeholder="c===8" onChange={handleChange} />
+      <Input value={value} placeholder={placeholder} onChange={handleChange} />
       <Button size="lg" onClick={handleClick}>
         VAZIOJAM
       </Button>

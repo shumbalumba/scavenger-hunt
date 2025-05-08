@@ -2,11 +2,12 @@
 
 import { useLocalStorage } from "usehooks-ts";
 import { FirstStep } from "./first-step";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { SecondStep } from "./second-step";
 import { ThirdStep } from "./third-step";
 import { FourtStep } from "./fourth-step";
 import { Button } from "@/components/ui/button";
+import { Form } from "../components/form";
 
 const storageKey = "gameStep";
 
@@ -14,8 +15,7 @@ export default function Game() {
   const [currentStep, setValue] = useLocalStorage(storageKey, 0, {
     initializeWithValue: false,
   });
-
-  const env = process.env.NODE_ENV;
+  const [pass, setPass] = useState(false);
 
   const handleRestart = () => {
     setValue(0);
@@ -28,10 +28,6 @@ export default function Game() {
   const handleNext = () => {
     setValue((c) => c + 1);
   };
-
-  if (env === "production") {
-    return null;
-  }
 
   const renderGameStep = () => {
     switch (currentStep) {
@@ -47,6 +43,16 @@ export default function Game() {
         return <FirstStep cb={() => setValue(1)} />;
     }
   };
+
+  if (!pass) {
+    return (
+      <Form
+        answer="VAKARAS"
+        onSuccess={() => setPass(true)}
+        placeholder="ALOHAMORA"
+      />
+    );
+  }
 
   return (
     <>
