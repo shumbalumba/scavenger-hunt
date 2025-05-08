@@ -37,13 +37,7 @@ export default function Game() {
       case 2:
         return <ThirdStep />;
       case 3:
-        return (
-          <FourtStep
-            cb={function (): void {
-              throw new Error("Function not implemented.");
-            }}
-          />
-        );
+        return <FourtStep />;
       default:
         return <FirstStep cb={() => setValue(1)} />;
     }

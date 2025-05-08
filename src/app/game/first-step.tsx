@@ -4,7 +4,6 @@ import { useState } from "react";
 import { RetroAudioPlayer } from "../components/audio-player";
 import { CoolText } from "../components/cool-text";
 import { Form } from "../components/form";
-import { useLocalStorage } from "usehooks-ts";
 
 const texts = [
   // "Laurynai, sveikas atvykęs į žaidimą. Tikimės, kad esi pasiruošęs šiek tiek pažaisti ir spręsti bei vykdyti mūsų sugalvotas užduotis. Kiekvienas tavo išbandymas nuves tave į tam tikrą tašką, kuriame radęs ar gavęs atsakymą turėsi jį įvesti šioje platformoje, kad pereitum prie kito išbandymo.",

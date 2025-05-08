@@ -11,7 +11,6 @@ import {
 } from "@/components/ui/input-otp";
 import { Button } from "@/components/ui/button";
 import { REGEXP_ONLY_DIGITS } from "input-otp";
-import { stringToCoordinates } from "@/utils/stringToCoordinates";
 
 const texts = [
   // "Laurynai, džiaugiamės, kad pirmajį išbandymą jau įveikei. Jei nori įveikti 2-ąjį ir priartėti prie galutinio tikslo, tau teks išragauti šiuos gėrimus. Skanaus!",
