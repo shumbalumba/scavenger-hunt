@@ -17,7 +17,7 @@ export const SixthStep = ({ cb }: { cb: () => void }) => {
         onComplete={() => setShowPlayer(true)}
       />
       {showPlayer && (
-        <Form answer="SIKNADEGA" onSuccess={cb} error="NU JAU, AR TIKRAI??" />
+        <Form answer="3" onSuccess={cb} error="DVEJETUKININKAS!" />
       )}
     </>
   );

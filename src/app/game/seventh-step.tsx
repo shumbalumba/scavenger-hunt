@@ -2,7 +2,7 @@
 
 import { CoolText } from "../components/cool-text";
 
-const texts = ["KUR TOLIAU???"];
+const texts = ["GAL ZEMELAPIS PARODYS KELIA?"];
 
 export const SeventhStep = () => {
   return (
