@@ -38,6 +38,10 @@ export const FourtStep = ({
       return;
     }
 
+    if (onHint) {
+      setSongs(["0", "1", "2", "3"]);
+    }
+
     // Create a new array to ensure React detects the state change
     const updatedSongs = [...songs, song];
     setSongs(updatedSongs);

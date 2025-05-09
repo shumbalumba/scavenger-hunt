@@ -24,7 +24,7 @@ export const FirstStep = ({ cb }: { cb: () => void }) => {
       {showPlayer && <RetroAudioPlayer src="kas-geria-tas-dega.mp3" />}
       {showPlayer && (
         <Form
-          answer="KASGERIATASDEGA!"
+          answer="KASGERIATASDEGA!420"
           onSuccess={cb}
           error="NU JAU, AR TIKRAI??"
           inputClassName="text-pink-400 border-pink-500/70 focus:border-pink-400 shadow-[0_0_8px_pink-700]"
