@@ -37,8 +37,8 @@ export const Intro = ({
           onSuccess={cb}
           error="ERROR!"
           btnText="START NEW GAME"
-          inputClassName="text-red-400 border-red-500/70 focus:border-red-400"
-          btnClassName="text-red-400 border-red-500/70 focus:border-red-400"
+          inputClassName="text-red-400 border-red-500/70 focus:border-red-400 shadow-[red-700]"
+          btnClassName="text-red-400 border-red-500/70 focus:border-red-400 shadow-[red-700]"
         />
       )}
       {progress && <Button onClick={onResume}>RESUME</Button>}

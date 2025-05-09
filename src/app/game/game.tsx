@@ -38,6 +38,7 @@ export function Game({ songs }: { songs?: string | string[] }) {
   }, []);
 
   useEffect(() => {
+    window?.scrollTo(0, 0);
     if (currentStep && currentStep > maxStep) {
       setMaxStep(currentStep);
     }

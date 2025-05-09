@@ -22,8 +22,8 @@ export const FifthStep = ({ cb }: { cb: () => void }) => {
           answer="RAJONAS"
           onSuccess={cb}
           error="NU JAU, AR TIKRAI??"
-          inputClassName="text-green-400 border-green-500/70 focus:border-green-400"
-          btnClassName="text-green-400 border-green-500/70 focus:border-green-400"
+          inputClassName="text-green-400 border-green-500/70 focus:border-green-400 shadow-[green-700]"
+          btnClassName="text-green-400 border-green-500/70 focus:border-green-400 shadow-[green-700]"
         />
       )}
     </>

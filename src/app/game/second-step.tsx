@@ -13,7 +13,7 @@ import { Button } from "@/components/ui/button";
 import { REGEXP_ONLY_DIGITS } from "input-otp";
 
 const texts = [
-  // "Laurynai, džiaugiamės, kad pirmajį išbandymą jau įveikei. Jei nori įveikti 2-ąjį ir priartėti prie galutinio tikslo, tau teks išragauti šiuos gėrimus. Skanaus!",
+  "Laurynai, džiaugiamės, kad pirmajį išbandymą jau įveikei. Jei nori įveikti 2-ąjį ir priartėti prie galutinio tikslo, tau teks išragauti šiuos gėrimus. Skanaus!",
   "1. JACK DANIEL'S ir COCA COLA 2.MIX VODKA & WATERMELON 3. Katlenburger Tropical Cocktail Pina Colada 4.Utenos Radler Arbūzinis 5. Pakartojam radleriuko 6.Kokteiliukas RIO Passionfruit Vodka ",
   "7.Pakartojam radleriuko 8. JACK DANIEL'S ir COCA COLA 9. Pakartojam radleriuko 10.Mionetto il spriz 11.196 strong zero Karčios citrinos skonio 12. Dasimušam su Kokteiliuku RIO Passionfruit Vodka",
 ];
