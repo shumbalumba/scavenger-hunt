@@ -27,6 +27,8 @@ export const FirstStep = ({ cb }: { cb: () => void }) => {
           answer="KASGERIATASDEGA!"
           onSuccess={cb}
           error="NU JAU, AR TIKRAI??"
+          inputClassName="text-pink-400 border-pink-500/70 focus:border-pink-400"
+          btnClassName="text-pink-400 border-pink-500/70 focus:border-pink-400"
         />
       )}
     </>

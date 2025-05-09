@@ -9,6 +9,7 @@ import { CoolText } from "./cool-text";
 interface RetroCameraButtonProps {
   onCapture?: (file: File) => void;
   className?: string;
+  text?: string;
   variant?:
     | "default"
     | "destructive"
@@ -21,6 +22,7 @@ interface RetroCameraButtonProps {
 
 export function RetroFileUpload({
   className,
+  text = "DĖMESIO, TAVO NUOTRAUKA BUS ĮVERTINTA!",
   label = "IKELTI IKALCIUS",
 }: RetroCameraButtonProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -64,10 +66,7 @@ export function RetroFileUpload({
 
   return (
     <div className="flex flex-col items-center space-y-2">
-      <CoolText
-        texts={["DĖMESIO, TAVO NUOTRAUKA BUS ĮVERTINTA!"]}
-        color="teal"
-      />
+      <CoolText texts={[text]} color="teal" />
       <input
         type="file"
         accept="image/*"
