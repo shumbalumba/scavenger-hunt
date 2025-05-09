@@ -49,7 +49,9 @@ export function Game({ songs }: { songs?: string | string[] }) {
   };
 
   const sosProps: Record<number, object> = {
-    0: { text: "KA PASAKYTI BARMENUI? TIK GARSIAI!" },
+    0: {
+      text: "KA PASAKYTI BARMENUI? TIK GARSIAI! +AUTOMOBILIO NUMERIO SKAICIAI",
+    },
     1: { text: "AR STIPRUS SIE GERIMAI?" },
     2: { text: "KUR VEDA SIOS KOORDINATES?" },
     3: { text: "KELK NUOTRAUKA TIKTAI " },
