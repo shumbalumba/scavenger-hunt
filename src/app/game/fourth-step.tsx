@@ -22,14 +22,14 @@ const notesMap = {
   "3": "KETVIRTAS_SKAICIUS_0.MP3",
 } as Record<string, string>;
 
-export const FourtStep = ({ onHint }: { onHint: boolean }) => {
-  // Remove the initializeWithValue option to ensure localStorage values are loaded properly
-  const [songs, setSongs] = useLocalStorage(storageKey, [
-    "0",
-    "1",
-    "2",
-    "3",
-  ] as string[]);
+export const FourtStep = ({
+  onHint,
+  cb,
+}: {
+  onHint: boolean;
+  cb: () => void;
+}) => {
+  const [songs, setSongs] = useLocalStorage(storageKey, [] as string[]);
   const searchParams = useSearchParams();
   const song = searchParams.get("song");
 
@@ -56,6 +56,7 @@ export const FourtStep = ({ onHint }: { onHint: boolean }) => {
       ))}
       {songs.includes("3") && (
         <RetroFileUpload
+          onSuccess={cb}
           text={
             onHint
               ? "NA, TAI IKELK DAR VIENA SELFIUKA KAIP SKAICIUOJI :)"

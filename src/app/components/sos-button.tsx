@@ -9,16 +9,19 @@ export const SosButton = ({
   hint,
 }: {
   text?: string;
-  hint?: React.ReactNode;
+  hint?: () => void;
 }) => {
   const [showHint, setShowHint] = useState(false);
   const [showWarning, setShowWarning] = useState(false);
 
   if (showHint) {
+    if (hint) {
+      hint();
+      return null;
+    }
     return (
       <div className="absolute inset-0 bg-red-600 flex flex-col justify-evenly p-6">
-        {text && <CoolText texts={["UZUOMINA VA TOKIA"]} />}
-        {hint}
+        {text && <CoolText texts={[text]} />}
         <Button
           onClick={() => {
             setShowHint(false);
@@ -42,7 +45,7 @@ export const SosButton = ({
               setShowWarning(false);
             }}
           >
-            UZUOMINA
+            SHOW ME
           </Button>
         </div>
       </div>

@@ -9,6 +9,7 @@ type FormProps = {
   placeholder?: string;
   inputClassName?: string;
   btnClassName?: string;
+  btnText?: string;
 };
 
 export const Form = ({
@@ -18,6 +19,7 @@ export const Form = ({
   error = "",
   inputClassName,
   btnClassName,
+  btnText = "VAZIUOJAM",
 }: FormProps) => {
   const [value, setValue] = useState<string>("");
   const [err, setErr] = useState(false);
@@ -43,7 +45,7 @@ export const Form = ({
         className={inputClassName}
       />
       <Button size="lg" onClick={handleClick} className={btnClassName}>
-        VAZIOJAM
+        {btnText}
       </Button>
       {err && error && <p className="text-red-600">{error}</p>}
     </>

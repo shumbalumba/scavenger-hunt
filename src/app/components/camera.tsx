@@ -10,6 +10,7 @@ interface RetroCameraButtonProps {
   onCapture?: (file: File) => void;
   className?: string;
   text?: string;
+  onSuccess?: () => void;
   variant?:
     | "default"
     | "destructive"
@@ -24,6 +25,7 @@ export function RetroFileUpload({
   className,
   text = "DĖMESIO, TAVO NUOTRAUKA BUS ĮVERTINTA!",
   label = "IKELTI IKALCIUS",
+  onSuccess,
 }: RetroCameraButtonProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -54,6 +56,7 @@ export function RetroFileUpload({
       // onCapture?.(file); // or pass data.url if you want the blob URL
       setUploadComplete(true);
       console.log(uploadComplete);
+      onSuccess?.();
     } catch (error) {
       console.error("Error uploading image:", error);
     } finally {
