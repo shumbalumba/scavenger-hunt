@@ -47,7 +47,7 @@ export const FourtStep = ({
     setSongs(updatedSongs);
 
     console.log("Songs updated:", updatedSongs);
-  }, [song, songs]);
+  }, [song, songs, onHint]);
 
   const text = onHint
     ? "NA, TAI IKELK DAR VIENA SELFIUKA KAIP SKAICIUOJI :)"
