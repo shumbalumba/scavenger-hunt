@@ -21,7 +21,9 @@ export const Intro = ({
 
   return (
     <>
-      <TriangleAlert />
+      <div className="text-red-400/70">
+        <TriangleAlert className="w-12 h-12" />
+      </div>
       <CoolText
         texts={texts}
         capitalize={true}
@@ -30,6 +32,7 @@ export const Intro = ({
       />
       {showPlayer && (
         <Form
+          placeholder="PASSWORD"
           answer="DEVIL"
           onSuccess={cb}
           error="ERROR!"

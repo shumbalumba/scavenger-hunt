@@ -284,11 +284,6 @@
   box-shadow: 0 0 6px rgba(234, 179, 8, 0.7);
 }
 
-svg {
-  width: 24px;
-  height: 24px;
-}
-
 @keyframes monitorTurnOn {
   0% {
     opacity: 0;

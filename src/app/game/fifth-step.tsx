@@ -18,7 +18,13 @@ export const FifthStep = ({ cb }: { cb: () => void }) => {
         onComplete={() => setShowPlayer(true)}
       />
       {showPlayer && (
-        <Form answer="RAJONAS" onSuccess={cb} error="NU JAU, AR TIKRAI??" />
+        <Form
+          answer="RAJONAS"
+          onSuccess={cb}
+          error="NU JAU, AR TIKRAI??"
+          inputClassName="text-green-400 border-green-500/70 focus:border-green-400"
+          btnClassName="text-green-400 border-green-500/70 focus:border-green-400"
+        />
       )}
     </>
   );

@@ -45,6 +45,12 @@ export const FourtStep = ({
     console.log("Songs updated:", updatedSongs);
   }, [song, songs]);
 
+  const text = onHint
+    ? "NA, TAI IKELK DAR VIENA SELFIUKA KAIP SKAICIUOJI :)"
+    : songs.length < 4
+      ? "AR TIKRAI PAKLAUSEI VISU DAINU? :)"
+      : undefined;
+
   return (
     <>
       {songs.map((song) => (
@@ -54,16 +60,7 @@ export const FourtStep = ({
           note={notesMap[song]}
         />
       ))}
-      {songs.includes("3") && (
-        <RetroFileUpload
-          onSuccess={cb}
-          text={
-            onHint
-              ? "NA, TAI IKELK DAR VIENA SELFIUKA KAIP SKAICIUOJI :)"
-              : undefined
-          }
-        />
-      )}
+      {songs.includes("3") && <RetroFileUpload onSuccess={cb} text={text} />}
     </>
   );
 };

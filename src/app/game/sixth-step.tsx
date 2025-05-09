@@ -14,7 +14,6 @@ export const SixthStep = ({ cb }: { cb: () => void }) => {
       <CoolText
         texts={texts}
         capitalize={true}
-        color="green"
         onComplete={() => setShowPlayer(true)}
       />
       {showPlayer && (

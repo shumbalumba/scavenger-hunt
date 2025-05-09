@@ -17,8 +17,9 @@ export const SosButton = ({
   if (showHint) {
     if (hint) {
       hint();
-      return null;
+      setShowHint(false);
     }
+
     return (
       <div className="absolute inset-0 bg-red-600 flex flex-col justify-evenly p-6">
         {text && <CoolText texts={[text]} />}

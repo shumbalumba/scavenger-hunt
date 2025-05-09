@@ -12,23 +12,21 @@ import { FifthStep } from "./fifth-step";
 import { SixthStep } from "./sixth-step";
 import { Intro } from "./intro";
 import { SeventhStep } from "./seventh-step";
+import RetroLoader from "../components/loader";
 
 const storageKey = "gameStep";
 
 export function Game({ songs }: { songs?: string | string[] }) {
   const [currentStep, setValue] = useLocalStorage<number | null>(
     storageKey,
-    null,
-    {
-      initializeWithValue: false,
-    }
+    null
   );
-  const [maxStep, setMaxStep] = useLocalStorage("maxStep", 0, {
-    initializeWithValue: false,
-  });
+  const [maxStep, setMaxStep] = useLocalStorage("maxStep", 0);
   const [blockGame, setBlockGame] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    setIsMounted(true);
     if (songs !== undefined) {
       if (!currentStep) {
         setBlockGame(true);
@@ -78,9 +76,9 @@ export function Game({ songs }: { songs?: string | string[] }) {
         );
       case 4:
         return <FifthStep cb={handleNext} />;
-      case 6:
+      case 5:
         return <SixthStep cb={handleNext} />;
-      case 7:
+      case 6:
         return <SeventhStep />;
       default:
         return (
@@ -99,7 +97,7 @@ export function Game({ songs }: { songs?: string | string[] }) {
 
   return (
     <>
-      {renderGameStep()}
+      {isMounted ? renderGameStep() : <RetroLoader />}
 
       {currentStep !== null && <SosButton {...sosProps[currentStep]} />}
     </>

@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import { CoolText } from "./cool-text";
 import RetroLoader from "./loader";
 import { playTypingSound } from "@/utils/playSound";
+import { useRouter } from "next/navigation";
 
 const padWithZero = (num: number): string =>
   num < 10 ? `0${num}` : num.toString();
@@ -12,6 +13,7 @@ const texts = [
   "STARTO VIETA NAMIE.",
   "TAU REIKĖS:",
   " ",
+  "• OFICIALIOS BIBLIJOS PROGRAMĖLĖS",
   "• Aprangos į gamtą ir į šventę atitinkančios oro sąlygas ",
   "• Bolt paspirtukas ar panaši transporto priemonė. Svarbu turėti prieigą prasidėjus žaidimui. Automobilis netinka.",
   "• Pakrautas telefonas",
@@ -33,6 +35,8 @@ export const Countdown = ({ targetDate }: { targetDate: Date }) => {
   const [glitchActive, setGlitchActive] = useState(-1);
   const [counter, setCounter] = useState(0);
   const audioContextRef = useRef<AudioContext | null>(null);
+
+  const router = useRouter();
 
   // Ref to store timeout IDs for cleanup
   const glitchTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -122,14 +126,24 @@ export const Countdown = ({ targetDate }: { targetDate: Date }) => {
       };
     };
 
-    setTimeLeft(calculateTimeLeft);
+    setTimeLeft(timeLeft);
 
     setTimeout(() => {
       setIsMounted(true);
     }, 2500);
 
     const interval = setInterval(() => {
-      setTimeLeft(calculateTimeLeft);
+      const timeLeft = calculateTimeLeft();
+
+      if (
+        timeLeft.days <= 0 &&
+        timeLeft.hours <= 0 &&
+        timeLeft.minutes <= 0 &&
+        timeLeft.seconds < 3
+      ) {
+        router.push("/game");
+      }
+      setTimeLeft(timeLeft);
     }, 1000);
 
     return () => clearInterval(interval);
