@@ -57,7 +57,8 @@ export function Game({ songs }: { songs?: string | string[] }) {
     3: { text: "KELK NUOTRAUKA TIKTAI " },
     4: { text: "NZN KO DAR NORI" },
     5: { hint: () => setValue(3) },
-    6: {
+    6: { text: "(54.7176685, 25.2820945)" },
+    7: {
       text: "KUR DAR GALIMA NETOLIESE ATSIGERT IVAIRAUS ALAUS IR PAVALGYT UZ BRANGIAI?",
     },
   };
